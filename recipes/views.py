@@ -59,4 +59,4 @@ def recipe_view(request, pk):  # OPTIONAL
     # Handle recipe deletion with AJAX
 
     recipe = get_object_or_404(Recipe, pk=pk)
-    return render(request, 'view.html', {'recipe': recipe})
+    return JsonResponse({"title":recipe.title, "description":recipe.description}, status=200,safe=False)
